@@ -5,7 +5,7 @@ Version:	0.42rc1
 Release:	1
 License:	GPL
 Group:		Networking/Admin
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	http://www.niceshaper.mikule.net/files/%{name}-%{version}.tar.bz2
 URL:		http://www.niceshaper.mikule.net/
 Requires:	firewall-userspace-tool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,7 +30,7 @@ install -d $RPM_BUILD_ROOT%{_bindir}
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/niceshaper
 
 install niceshaper $RPM_BUILD_ROOT%{_bindir}
-install etc/niceshaper/* $RPM_BUILD_ROOT%{_sysconfdir}/niceshaper/
+install etc/niceshaper/* $RPM_BUILD_ROOT%{_sysconfdir}/niceshaper
 
 %clean
 rm -rf $RPM_BUILD_ROOT
