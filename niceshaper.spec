@@ -2,16 +2,16 @@
 # - make init.d script
 
 Summary:	NiceShaper - bandwidth limiting
-Summary(pl):	NiceShaper - dzielenie ³±cza
+Summary(pl):	NiceShaper - dynamiczny podzia³ ³±cza
 Name:		niceshaper
 Version:	0.5rc3
 Release:	0.1
 License:	GPL
 Group:		Networking/Admin
 Source0:	http://www.niceshaper.mikule.net/files/%{name}-%{version}.tar.bz2
-Source1:	niceshaper.users
-Source2:	niceshaper.config
-Source3:	niceshaper.about
+Source1:	%{name}.users
+Source2:	%{name}.config
+Source3:	%{name}.about
 URL:		http://www.niceshaper.mikule.net/
 Requires:	firewall-userspace-tool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -21,8 +21,9 @@ This program limits bandwidth on the ethernet/ppp interface and
 divides it between the hosts in the local network.
 
 %description -l pl
-Program potrafi ograniczaæ przepustowo¶æ interfejsu ethernet/ppp oraz
-dzieliæ dostêpne pasmo pomiêdzy komputery w sieci lokalnej.
+Program opieraj±c siê na HTB dzieli dostêpne pasmo na komputery w
+sieci, dynamicznie dostosowuj±c siê do generowanego przez ka¿dego z
+u¿ytkowników obci±¿enia.
 
 %prep
 %setup -q -c
