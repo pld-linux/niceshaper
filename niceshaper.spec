@@ -38,9 +38,7 @@ cp %{SOURCE4} .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
-install -d $RPM_BUILD_ROOT/etc/rc.d/init.d
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/niceshaper
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_sysconfdir}/niceshaper,%{_initrddir}}
 
 install niceshaper $RPM_BUILD_ROOT%{_bindir}
 install etc/niceshaper/* $RPM_BUILD_ROOT%{_sysconfdir}/niceshaper
@@ -68,6 +66,6 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc users config about
-%attr(755,root,root) %{_bindir}/*
-%attr(754,root,root) /etc/rc.d/init.d/niceshaper
 %attr(640,root,root) %verify(not size md5 mtime) %config(noreplace) %{_sysconfdir}/niceshaper/*
+%attr(755,root,root) %{_bindir}/*
+%attr(754,root,root) %{_initrddir}/niceshaper
