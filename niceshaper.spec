@@ -50,17 +50,17 @@ rm -rf $RPM_BUILD_ROOT
 %post
 /sbin/chkconfig --add niceshaper
 if [ -f /var/run/niceshaper.pid ]; then
-        /etc/rc.d/init.d/niceshaper restart >&2
+	/etc/rc.d/init.d/niceshaper restart >&2
 else
-        echo "Run \"/etc/rc.d/init.d/niceshaper start\" to start niceshaper daemon." >&2
+	echo "Run \"/etc/rc.d/init.d/niceshaper start\" to start niceshaper daemon." >&2
 fi
 
 %preun
 if [ "$1" = "0" ]; then
-        if [ -f /var/run/niceshaper.pid ]; then
-                /etc/rc.d/init.d/niceshaper stop >&2
-        fi
-        /sbin/chkconfig --del niceshaper
+	if [ -f /var/run/niceshaper.pid ]; then
+		/etc/rc.d/init.d/niceshaper stop >&2
+	fi
+	/sbin/chkconfig --del niceshaper
 fi
 
 %files
