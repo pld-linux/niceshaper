@@ -1,13 +1,12 @@
 Summary:	NiceShaper - bandwidth limiting
 Summary(pl):	NiceShaper - dynamiczny podzia³ ³±cza
 Name:		niceshaper
-Version:	0.5
+Version:	0.5.1
 Release:	1
 License:	GPL
 Group:		Networking/Admin
 Source0:	http://www.niceshaper.mikule.net/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	e33efd5a56e7d3f31d31a4b906fefbde
-# Source0-size:	9867
+# Source0-md5:	dd565b28a9cddeede8fe2966591961a0
 Source1:	%{name}.users
 Source2:	%{name}.config
 Source3:	%{name}.about
