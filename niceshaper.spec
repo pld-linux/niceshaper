@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Networking/Admin
 Source0:	http://www.niceshaper.mikule.net/files/%{name}-%{version}.tar.bz2
+# Source0-md5:	33758c06df3a5651a8ae90c0f96ecf4d
 Source1:	%{name}.users
 Source2:	%{name}.config
 Source3:	%{name}.about
