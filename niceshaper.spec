@@ -67,6 +67,7 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc users config about
-%attr(640,root,root) %verify(not size md5 mtime) %config(noreplace) %{_sysconfdir}/niceshaper/*
+%dir %{_sysconfdir}/%{name}
+%attr(640,root,root) %verify(not size md5 mtime) %config(noreplace) %{_sysconfdir}/%{name}/*
 %attr(755,root,root) %{_bindir}/*
 %attr(754,root,root) %{_initrddir}/niceshaper
