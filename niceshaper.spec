@@ -44,7 +44,7 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}/niceshaper
 
 install niceshaper $RPM_BUILD_ROOT%{_bindir}
 install etc/niceshaper/* $RPM_BUILD_ROOT%{_sysconfdir}/niceshaper
-install niceshaper.init $RPM_BUILD_ROOT/etc/rc.d/init.d/niceshaper
+install niceshaper.init $RPM_BUILD_ROOT%{_initrddir}/niceshaper
 
 %clean
 rm -rf $RPM_BUILD_ROOT
