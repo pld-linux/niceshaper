@@ -16,11 +16,11 @@
 case $1 in
 	start)
 		sleep 5
-		niceshaper start
+		/usr/bin/niceshaper start
 		msg_starting NiceShaper
 	;;
 	stop)
-		niceshaper stop
+		/usr/bin/niceshaper stop
 		msg_stopping NiceShaper
 	;;
 	restart)
@@ -28,7 +28,7 @@ case $1 in
 		$0 start
 	;;
 	stats)
-		niceshaper stats
+		/usr/bin/niceshaper stats
 	;;
 	*)
 		echo "usage: $0 {start|stop|restart|stats}"
