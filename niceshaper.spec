@@ -12,8 +12,8 @@ Source2:	%{name}.config
 Source3:	%{name}.about
 Source4:	%{name}.init
 URL:		http://www.niceshaper.mikule.net/
-PreReq:         rc-scripts
-Requires(post,preun):   /sbin/chkconfig
+PreReq:		rc-scripts
+Requires(post,preun):	/sbin/chkconfig
 Requires:	firewall-userspace-tool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -35,6 +35,7 @@ cp %{SOURCE1} ./users
 cp %{SOURCE2} ./config
 cp %{SOURCE3} ./about
 cp %{SOURCE4} .
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_bindir}
