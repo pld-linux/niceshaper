@@ -1,11 +1,8 @@
-# TODO:
-# - look into niceshaper.init and remake it if needed
-
 Summary:	NiceShaper - bandwidth limiting
 Summary(pl):	NiceShaper - dynamiczny podzia³ ³±cza
 Name:		niceshaper
 Version:	0.5rc3
-Release:	0.2
+Release:	0.5
 License:	GPL
 Group:		Networking/Admin
 Source0:	http://www.niceshaper.mikule.net/files/%{name}-%{version}.tar.bz2
