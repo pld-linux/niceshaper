@@ -22,7 +22,7 @@ dzieliæ dostêpne pasmo pomiêdzy komputery w sieci lokalnej.
 %setup -q
 
 %build
-%{__cxx} %{rpmcflags} -c niceshaper.cpp -o niceshaper
+%{__cxx} %{rpmcflags} niceshaper.cpp -o niceshaper
 
 %install
 rm -rf $RPM_BUILD_ROOT
