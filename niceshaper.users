@@ -1,0 +1,18 @@
+W pliku /etc/niceshaper/users musz± zostaæ umieszczone adresy IP wszystkich hostów w sieci, oraz oddzielona spacj±, nazwa interfejsu je obs³uguj±cego.
+
+192.168.0.101 eth1
+192.168.0.102 eth1
+192.168.0.103 eth1
+192.168.0.104 eth1 dl_ceil 50kbps
+192.168.0.105 eth1 dl_rate 20kbps dl_prio 1
+192.168.0.106 eth2 ul_low 3kbps ul_ceil 6kbps
+192.168.0.107 eth2
+
+- dodatkowe parametry pozwalaj± traktowaæ poszczególne hosty nie zale¿nie, od ustawieñ globalnych.
+- zapewniæ ¿±dane minimalne pasmo, lub utrudniæ ¿ycie niereformowalnemu w³a¶cicielowi ftp.
+
+- dl_low, ul_low - minimalny przydzia³
+- dl_ceil, ul_ceil - maksymalny przydzia³
+- dl_rate, ul_rate - sta³y przydzia³
+- dl_prio, ul_prio - priorytet klasy w HTB, przyjmuje warto¶ci miêdzy 0 a 7, czym ni¿sza warto¶æ tym wy¿szy priorytet. 
+Domy¶lnie ma warto¶æ 5.

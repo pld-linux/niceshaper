@@ -1,0 +1,43 @@
+ NiceShaper umo¿liwia podzia³ ³±cza internetowego, dynamicznie dostosowuj±c siê do generowanego przez u¿ytkowników 
+obci±¿enia.
+
+A wszystko zaczê³o siê gdy na samym pocz±tku zabawy z linux'em i sieci± dosta³a mi siê blisko setka, rz±dnych kaaza 
+internautów, na ³±czu o przepustowo¶ci 1Mbit. Blokowanie P2P mnie nie zainteresowa³o, brak umiejêtno¶ci admina nie mo¿e 
+byæ pretekstem do serwowania ludziom, jakby nie patrzeæ, niepe³nosprawnego internetu. Zacz±³em od cbq.init by szybko 
+porzuciæ go i zacz±æ pisaæ samemu regu³ki za pomoc± sk³adni 'tc', lecz efekt podzia³u pasma na us³ugi by³ cokolwiek nie 
+fortunny, sta³e przydzia³y dla u¿ytkowników tym bardziej, u znajomego admina widzia³em program dynamicznie dopasowuj±cy 
+przydzielane pasma do aktualnego obci±¿enia, niestety dostêpne pasmo siê marnowa³o, u¿ytkownicy otrzymywali przydzia³y 
+po 2KB/s, ogólnie mimo polecania, nie przypad³o mi to rozwi±zanie do gustu. Tak wiêc po jakim¶ czasie opracowa³em idee i 
+napisa³em w³asny skrypt do dynamicznego podzia³u pasma. Tak skrypt, najpierw w bashu, uruchamiany co minutê z crona;) 
+Mimo to efekty by³y zachêcaj±ce. Niestety bash hamowa³ rozwój a o tym zacz±³em coraz czê¶ciej my¶leæ, wiêc przysz³a pora 
+by nauczyæ siê C/C++, ca³o¶æ zosta³a przepisana od zera, a powsta³y kod by³ ju¿ wielokrotnie przebudowywany a¿ do 
+dzisiejszej postaci.
+
+To chyba na tyle wstêpu, mój aktualny kod na pewno nie jest zbyt poprawny, niektóre fragmenty s± fatalne, ale 
+programist± nie jestem a piszê, jedynie dla w³asnego u¿ytku, nie dysponuje te¿ odpowiedni± ilo¶ci± czasu, by dodaj±c 
+nowe funkcje traciæ go na szukanie odpowiedniejszego z punktu widzenia estetyki kodu, rozwi±zania. Idea dzia³ania 
+powsta³a po pewnych obserwacjach, otó¿ przyk³adowe wej¶cie na stronê to "wystrza³" danych ze strony serwera do klienta, 
+do naprawdê wygodnego surfowania dobrze mieæ dostêp do pasma o przepustowo¶ci kilkunastu KB/s, a nawet wiêkszego. Gdy 
+wiêksza liczba osób ogl±da jedynie www czy ¶ci±ga pocztê, ruch siê rozk³ada, najczê¶ciej ka¿de wywo³anie strony wpada w 
+lukê pomiêdzy wywo³aniami innych u¿ytkowników, gdy za¶ pojawi siê kto¶ ¶ci±gaj±cy nachalnie du¿e ilo¶ci danych, robi to 
+w sposób ci±g³y i zabiera pewn± czê¶æ pasma na wy³±cznie w³asny u¿ytek, dlatego taka osoba powinna byæ szybko wy³apana i 
+po pewnym okresie czasu powoli "¶cinana" w dó³. I nie chodzi oto, by zablokowaæ lecz zepchn±æ do pewnego zno¶nego dla 
+ogó³u poziomu. I tu powstaje jeszcze drugi kruczek, dzielenie w matematycznie poprawny sposób tzn. by suma przydzia³ów 
+by³a równa przepustowo¶ci naszego ³±cza internetowego skutkuje marnotrawieniem dostêpnego pasma i czêsto to wolne pasmo 
+siêga 50% mo¿liwo¶ci ³±cza którego koszt jest z regu³y nie zale¿ny od stopnia wykorzystania. Dlatego te¿ wykorzysta³em 
+owo rozk³adanie siê ruchu, i sprawdza siê to tym lepiej im wiêksza liczba osób korzysta z internetu jednocze¶nie. 
+NiceShaper mo¿e utrzymywaæ stopieñ wykorzystania ³±cza na poziomie dochodz±cym do 90% przepustowo¶ci, a do tego 
+u¿ytkownicy mog± jednocze¶nie korzystaæ z gier online, pracowaæ zdalnie czy u¿ywaæ P2P. W uproszczeniu sens w tym ¿e 
+przydzielamy wszystkim, jakby w dobrej wierze na wyrost, i odpowiednio szybko wy³apujemy tych którzy przesadzaj±. Je¶li 
+kto¶ nie wykorzystuje ca³ego swojego pasma nie zostaje mu ono zmniejszone, lecz zostan± zwiêkszone przydzia³y reszty. 
+Dziêki temu nikt nie jest zmuszany do surfowania z pasmem 2KB/s, co wygodne na pewno nie jest.
+
+Od strony konfiguracji, najwa¿niejsze wytyczne jakimi siê kierowa³em, to prostota i intuicyjno¶æ. Przecie¿ nie ka¿dy 
+kierowca samochodu lubi dostrajaæ pracê silnika, a program powinien sam wybraæ optymalny sposób dzia³ania, i udostêpniæ 
+jedynie najwa¿niejsze funkcje do skonfigurowania ( co¶ na kszta³t obecnej polityki gnome team'u, tylko bardziej 
+adekwatnie do specyfiki zastosowania ;). Uniwersalno¶æ pozwalaj±c± na prace na ka¿dym standardowym serwerze 
+udostêpniaj±cym internet dla sieci osiedlowej. Równie wa¿ne jest dla mnie traktowanie transferów wychodz±cych jak i 
+wchodz±cych na równi ju¿ z poziomu samego kodu. Bo có¿ nam z du¿ej przepustowo¶ci downloadu je¶li upload ledwo zipi i 
+nie jeste¶my w stanie wys³aæ w stronê internetu ¿adnych zapytañ. A z regu³y u¿ytkownicy P2P nie czuj± siê ile 
+udostêpniaj±. I na koniec oczywi¶cie minimalne obci±¿enie systemu. Naprawdê nie mia³em problemu z podzia³em internetu w 
+mojej sieci na Pentium 166Mhz z MMX. Choæ ju¿ dawa³o siê tu we znaki obci±¿enie generowane przez samo kolejkowanie CBQ. 
