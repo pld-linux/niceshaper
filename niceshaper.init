@@ -18,10 +18,12 @@ case $1 in
 		sleep 5
 		/usr/bin/niceshaper start
 		msg_starting NiceShaper
+		ok
 	;;
 	stop)
 		/usr/bin/niceshaper stop
 		msg_stopping NiceShaper
+		ok
 	;;
 	restart)
 		$0 stop
