@@ -1,0 +1,38 @@
+#!/bin/sh
+#
+# niceshaper	This script is used to start and stop niceshaper
+#
+# chkconfig:	345 83 17
+#
+# description:	NiceShaper limits bandwidth on the ethernet/ppp /
+#		interface and divides it between the hosts in the local network.
+
+# Source function library
+. /etc/rc.d/init.d/functions
+
+# Get network config
+. /etc/sysconfig/network
+
+case $1 in
+start)
+sleep 5
+niceshaper start
+echo "NiceShaper wystartowany"
+;;
+stop)
+niceshaper stop
+echo "NiceShaper wylaczony"
+;;
+restart)
+niceshaper restart
+echo "NiceShaper zrestartowany"
+;;
+stats)
+niceshaper stats
+;;
+*)
+echo "usage: $0 {start|stop|restart|stats}"
+exit 1
+;;
+esac
+exit 0
