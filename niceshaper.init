@@ -10,9 +10,6 @@
 # Source function library
 . /etc/rc.d/init.d/functions
 
-# Get network config
-. /etc/sysconfig/network
-
 case $1 in
 	start)
 		sleep 5
