@@ -13,9 +13,9 @@ Source3:	%{name}.about
 Source4:	%{name}.init
 URL:		http://www.niceshaper.mikule.net/
 BuildRequires:	libstdc++-devel
-PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
 Requires:	firewall-userspace-tool
+Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
