@@ -23,7 +23,7 @@ This program limits bandwidth on the ethernet/ppp interface and
 divides it between the hosts in the local network.
 
 %description -l pl
-Program opieraj±c siê na HTB dzieli dostêpne pasmo na komputery w
+Program opieraj±c siê na HTB/IMQ dzieli dostêpne pasmo na komputery w
 sieci, dynamicznie dostosowuj±c siê do generowanego przez ka¿dego z
 u¿ytkowników obci±¿enia.
 
