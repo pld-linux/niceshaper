@@ -13,6 +13,7 @@ Source3:	%{name}.about
 Source4:	%{name}.init
 URL:		http://www.niceshaper.mikule.net/
 BuildRequires:	libstdc++-devel
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(post,preun):	/sbin/chkconfig
 Requires:	firewall-userspace-tool
 Requires:	rc-scripts
@@ -50,17 +51,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/chkconfig --add niceshaper
-if [ -f /var/run/niceshaper.pid ]; then
-	/etc/rc.d/init.d/niceshaper restart >&2
-else
-	echo "Run \"/etc/rc.d/init.d/niceshaper start\" to start niceshaper daemon." >&2
-fi
+%service niceshaper restart "niceshaper daemon"
 
 %preun
 if [ "$1" = "0" ]; then
-	if [ -f /var/run/niceshaper.pid ]; then
-		/etc/rc.d/init.d/niceshaper stop >&2
-	fi
+	%service niceshaper stop
 	/sbin/chkconfig --del niceshaper
 fi
 
@@ -68,6 +63,6 @@ fi
 %defattr(644,root,root,755)
 %doc users config about
 %dir %{_sysconfdir}/%{name}
-%attr(640,root,root) %verify(not size md5 mtime) %config(noreplace) %{_sysconfdir}/%{name}/*
+%attr(640,root,root) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/%{name}/*
 %attr(755,root,root) %{_bindir}/*
 %attr(754,root,root) %{_initrddir}/niceshaper
