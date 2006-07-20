@@ -11,7 +11,7 @@ Source1:	%{name}.users
 Source2:	%{name}.config
 Source3:	%{name}.about
 Source4:	%{name}.init
-URL:		http://www.niceshaper.mikule.net/
+URL:		http://www.niceshaper.jedwabny.net/
 BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(post,preun):	/sbin/chkconfig
