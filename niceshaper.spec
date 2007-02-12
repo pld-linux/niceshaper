@@ -1,5 +1,5 @@
 Summary:	NiceShaper - bandwidth limiting
-Summary(pl):	NiceShaper - dynamiczny podzia³ ³±cza
+Summary(pl.UTF-8):   NiceShaper - dynamiczny podziaÅ‚ Å‚Ä…cza
 Name:		niceshaper
 Version:	0.5.1
 Release:	2
@@ -23,10 +23,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This program limits bandwidth on the ethernet/ppp interface and
 divides it between the hosts in the local network.
 
-%description -l pl
-Program opieraj±c siê na HTB/IMQ dzieli dostêpne pasmo na komputery w
-sieci, dynamicznie dostosowuj±c siê do generowanego przez ka¿dego z
-u¿ytkowników obci±¿enia.
+%description -l pl.UTF-8
+Program opierajÄ…c siÄ™ na HTB/IMQ dzieli dostÄ™pne pasmo na komputery w
+sieci, dynamicznie dostosowujÄ…c siÄ™ do generowanego przez kaÅ¼dego z
+uÅ¼ytkownikÃ³w obciÄ…Å¼enia.
 
 %prep
 %setup -q -c
