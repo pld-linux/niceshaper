@@ -1,5 +1,5 @@
 Summary:	NiceShaper - bandwidth limiting
-Summary(pl.UTF-8):   NiceShaper - dynamiczny podział łącza
+Summary(pl.UTF-8):	NiceShaper - dynamiczny podział łącza
 Name:		niceshaper
 Version:	0.5.1
 Release:	2
