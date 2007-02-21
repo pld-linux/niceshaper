@@ -31,13 +31,13 @@ Program opierając się na HTB/IMQ dzieli dostępne pasmo na komputery
 w sieci, dynamicznie dostosowując się do generowanego przez każdego
 z użytkowników obciążenia.
 
-
 %prep
 %setup -q -c
 
 %build
 
-%{__cxx} %{rpmcflags} src/ns_class.cc src/ns_container.cc src/ns_filter.cc src/ns_instance.cc src/ns_net.cc src/niceshaper.cc -o src/niceshaper
+%{__cxx} %{rpmcxxflags} src/ns_class.cc src/ns_container.cc src/ns_filter.cc src/ns_instance.cc src/ns_net.cc src/niceshaper.cc -o src/niceshaper
+
 cp %{SOURCE1} ./users
 cp %{SOURCE2} ./config
 cp %{SOURCE3} ./about
