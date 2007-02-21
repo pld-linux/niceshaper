@@ -1,12 +1,15 @@
+
+%define		_rc	rc3
+
 Summary:	NiceShaper - bandwidth limiting
 Summary(pl.UTF-8):	NiceShaper - dynamiczny podział łącza
 Name:		niceshaper
-Version:	0.5.1
-Release:	2
+Version:	0.6
+Release:	0.%{_rc}.1
 License:	GPL
 Group:		Networking/Admin
-Source0:	http://www.niceshaper.mikule.net/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	dd565b28a9cddeede8fe2966591961a0
+Source0:	http://niceshaper.jedwabny.net/files/%{name}%{version}%{_rc}.tar.bz2
+# Source0-md5:	6657728212c61d9657bcbec637a51f5d
 Source1:	%{name}.users
 Source2:	%{name}.config
 Source3:	%{name}.about
@@ -24,15 +27,17 @@ This program limits bandwidth on the ethernet/ppp interface and
 divides it between the hosts in the local network.
 
 %description -l pl.UTF-8
-Program opierając się na HTB/IMQ dzieli dostępne pasmo na komputery w
-sieci, dynamicznie dostosowując się do generowanego przez każdego z
-użytkowników obciążenia.
+Program opierając się na HTB/IMQ dzieli dostępne pasmo na komputery
+w sieci, dynamicznie dostosowując się do generowanego przez każdego
+z użytkowników obciążenia.
+
 
 %prep
 %setup -q -c
 
 %build
-%{__cxx} %{rpmcflags} niceshaper.cpp -o niceshaper
+
+%{__cxx} %{rpmcflags} src/ns_class.cc src/ns_container.cc src/ns_filter.cc src/ns_instance.cc src/ns_net.cc src/niceshaper.cc -o src/niceshaper
 cp %{SOURCE1} ./users
 cp %{SOURCE2} ./config
 cp %{SOURCE3} ./about
@@ -42,8 +47,8 @@ cp %{SOURCE4} .
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_sysconfdir}/niceshaper,%{_initrddir}}
 
-install niceshaper $RPM_BUILD_ROOT%{_bindir}
-install etc/niceshaper/* $RPM_BUILD_ROOT%{_sysconfdir}/niceshaper
+install src/niceshaper $RPM_BUILD_ROOT%{_bindir}
+install etc/niceshaper0.6/* $RPM_BUILD_ROOT%{_sysconfdir}/niceshaper
 install niceshaper.init $RPM_BUILD_ROOT%{_initrddir}/niceshaper
 
 %clean
