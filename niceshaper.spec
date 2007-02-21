@@ -45,10 +45,10 @@ cp %{SOURCE4} .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_sysconfdir}/niceshaper,%{_initrddir}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_sysconfdir}/niceshaper0.6,%{_initrddir}}
 
 install src/niceshaper $RPM_BUILD_ROOT%{_bindir}
-install etc/niceshaper0.6/* $RPM_BUILD_ROOT%{_sysconfdir}/niceshaper
+install etc/niceshaper0.6/* $RPM_BUILD_ROOT%{_sysconfdir}/niceshaper0.6
 install niceshaper.init $RPM_BUILD_ROOT%{_initrddir}/niceshaper
 
 %clean
@@ -67,7 +67,7 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc users config about
-%dir %{_sysconfdir}/%{name}
-%attr(640,root,root) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/%{name}/*
+%dir %{_sysconfdir}/%{name}0.6
+%attr(640,root,root) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/%{name}0.6/*
 %attr(755,root,root) %{_bindir}/*
 %attr(754,root,root) %{_initrddir}/niceshaper
