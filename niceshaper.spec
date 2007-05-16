@@ -1,5 +1,5 @@
 
-%define		_rc	rc3
+%define		_rc	rc4
 
 Summary:	NiceShaper - bandwidth limiting
 Summary(pl.UTF-8):	NiceShaper - dynamiczny podział łącza
@@ -9,7 +9,7 @@ Release:	0.%{_rc}.1
 License:	GPL
 Group:		Networking/Admin
 Source0:	http://niceshaper.jedwabny.net/files/%{name}%{version}%{_rc}.tar.bz2
-# Source0-md5:	6657728212c61d9657bcbec637a51f5d
+# Source0-md5:	1331f1f7a494d57199ed97cd62faff11
 Source1:	%{name}.users
 Source2:	%{name}.config
 Source3:	%{name}.about
@@ -36,7 +36,7 @@ z użytkowników obciążenia.
 
 %build
 
-%{__cxx} %{rpmcxxflags} src/ns_class.cc src/ns_container.cc src/ns_filter.cc src/ns_instance.cc src/ns_net.cc src/niceshaper.cc -o src/niceshaper
+%{__cxx} %{rpmcxxflags} src/class.cc src/class_container.cc src/filter.cc src/instance.cc src/net.cc src/main.cc src/error.cc -o src/niceshaper
 
 cp %{SOURCE1} ./users
 cp %{SOURCE2} ./config
