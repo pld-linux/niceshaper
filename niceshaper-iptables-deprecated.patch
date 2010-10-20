@@ -1,0 +1,40 @@
+diff -ur niceshaper0.6rc6/src/aux.cc niceshaper0.6rc6.new//src/aux.cc
+--- niceshaper0.6rc6/src/aux.cc	2008-06-21 14:25:22.000000000 +0200
++++ niceshaper0.6rc6.new//src/aux.cc	2010-10-20 21:35:36.653421858 +0200
+@@ -256,7 +256,7 @@
+ 	}
+ 	else if ( !strcmp( param, "not-srcip" )) {
+     	    if ( split( addr, mask, value ) == -1 ) return -1;
+-    	    strcat( result, " -s ! " );
++    	    strcat( result, " ! -s " );
+     	    strcat( result, addr );
+     	    strcat( result, "/" );
+ 	    strcat( result, mask );
+@@ -265,7 +265,7 @@
+ 	}
+ 	else if ( !strcmp( param, "not-dstip" )) {
+ 	    if ( split( addr, mask, value ) == -1 ) return -1;
+-    	    strcat( result, " -d ! " );
++    	    strcat( result, " ! -d " );
+     	    strcat( result, addr );
+     	    strcat( result, "/" );
+     	    strcat( result, mask );
+@@ -295,7 +295,7 @@
+ 		error->dump( 35, src ); 
+     		return -1; 
+ 	    }
+-    	    strcat( result, " --sport ! " );
++    	    strcat( result, " ! --sport " );
+             strcat( result, value );
+     	    strcat( result, " " );
+     	    need_mark = true;
+@@ -305,7 +305,7 @@
+ 		error->dump( 35, src ); 
+     		return -1; 
+ 	    }
+-    	    strcat( result, " --dport ! " );
++    	    strcat( result, " ! --dport " );
+             strcat( result, value );
+     	    strcat( result, " " );
+     	    need_mark = true;
+Tylko w niceshaper0.6rc6.new//src: aux.cc~
