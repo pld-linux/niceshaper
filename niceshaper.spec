@@ -15,6 +15,7 @@ Source2:	%{name}.config
 Source3:	%{name}.about
 Source4:	%{name}.init
 Patch0:		%{name}-includes.patch
+Patch1:		%{name}-iptables-deprecated.patch
 URL:		http://niceshaper.jedwabny.net/
 BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.268
@@ -35,6 +36,7 @@ użytkowników obciążenia.
 %prep
 %setup -q -c
 %patch0 -p1
+%patch1 -p1
 
 %build
 
